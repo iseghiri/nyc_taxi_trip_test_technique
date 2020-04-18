@@ -1,6 +1,5 @@
 from math import radians,sin,cos
 from pyspark.sql.functions import *
-
 def analyze(spark,df):
     
     df = spark \

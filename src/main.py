@@ -19,7 +19,6 @@ except:
 
 from pyspark.sql import SparkSession
 
-
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Run a PySpark job')
     parser.add_argument('--job', type=str, required=True, dest='job_name', help="The name of the job module you want to run. (ex: poc will run job on jobs.poc package)")
