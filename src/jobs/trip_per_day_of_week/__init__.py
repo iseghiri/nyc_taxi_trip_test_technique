@@ -5,8 +5,9 @@ def analyze(spark,df):
         .withColumn("week_day_number", date_format(col("pickup_datetime"), "u")) \
         .withColumn("week_day", date_format(col("pickup_datetime"), "E")) \
 
-    df_with_tip_per_day = df_with_day_of_week.rdd.map(lambda x : (x.week_day,1)) \
-    .reduceByKey(lambda x,y: x + y)
+    df_with_tip_per_day = df_with_day_of_week.rdd \
+        .map(lambda x : (x.week_day,1)) \
+        .reduceByKey(lambda x,y: x + y)
 
     result = df_with_tip_per_day.collect()
 

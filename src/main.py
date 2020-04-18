@@ -49,4 +49,6 @@ if __name__ == '__main__':
     print(res)
     end = time.time()
 
+    spark.stop()
+
     #print "\nExecution of job %s took %s seconds" % (args.job_name, end-start)
