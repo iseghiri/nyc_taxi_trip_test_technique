@@ -47,7 +47,8 @@ D'après la formule de wikipédia : https://en.wikipedia.org/wiki/Haversine_form
 
 
 On sait ensuite que :
-$$vitesse = \frac{distance}{temps}$$
+
+<img src="https://render.githubusercontent.com/render/math?math=vitesse = \frac{distance}{temps}">
 
 On aura obtiendra donc ici la vitesse moyenne du trajet en km/seconde, ce qui est une unité peu parlante mais qui permettra de comparer les trajets entre eux. On pourra par exemple voir qui sont les taxis ayant une vitesse moyenne plus rapide que les autres. Si nécessaire on peut ensuite adapter l'unité. Il faudra pour ça un avis métier et une connaissance plus précise de l'utilité de cette métrique.
 
