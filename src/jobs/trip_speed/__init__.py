@@ -1,12 +1,6 @@
 from math import radians,sin,cos
 from pyspark.sql.functions import *
 def analyze(spark,df):
-    
-    df = spark \
-    .read \
-    .format("csv") \
-    .option("header", "true") \
-    .load("data/train.csv")
 
     # Radius of the Earth
     r = 6371 

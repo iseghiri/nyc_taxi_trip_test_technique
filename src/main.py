@@ -3,7 +3,7 @@ import os
 import sys
 import time
 import importlib
-
+from shared import tests
 if os.path.exists('jobs.zip'):
     sys.path.insert(0, 'jobs.zip')
 else:
@@ -41,7 +41,11 @@ if __name__ == '__main__':
         .format("csv") \
         .option("header", "true") \
         .load("data/train.csv")
-
+    try:
+        tests.check_input_schema(df)
+    except AssertionError as msg:
+        print(msg)
+        
     job_module = importlib.import_module('jobs.%s' % args.job_name)
 
     start = time.time()
@@ -51,4 +55,4 @@ if __name__ == '__main__':
 
     spark.stop()
 
-    #print "\nExecution of job %s took %s seconds" % (args.job_name, end-start)
+    print "\nExecution of job %s took %s seconds" % (args.job_name, end-start)
