@@ -37,9 +37,8 @@ devrait suffire.
 
 J'ai utilisé ici la formule de Haversine pour cacluler la distance en km entre un point A et un point B.
 <img src="https://render.githubusercontent.com/render/math?math=a = sin^2(\frac{lat_B-lat_A}{2})+ cos(lat_A)*cos(lat_B)*sin^2(\frac{long_B-long_A}{2})">
+<img src="https://render.githubusercontent.com/render/math?math=d=2*r*arcsin(\sqrt{a})">
 
-$$a = sin^2(\frac{lat_B-lat_A}{2})+ cos(lat_A)*cos(lat_B)*sin^2(\frac{long_B-long_A}{2})$$
-$$d=2*r*arcsin(\sqrt{a})$$
 
 avec r le rayon de la sphère sur laquelle sont placés les points. On considérera ici la terre comme sphérique, ce qui donne de bon résultat en pratique.
 D'après la formule de wikipédia : https://en.wikipedia.org/wiki/Haversine_formula
