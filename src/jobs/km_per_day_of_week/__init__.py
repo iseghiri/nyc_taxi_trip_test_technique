@@ -11,11 +11,13 @@ def analyze(spark,df):
         .withColumn("week_day_number", date_format(col("pickup_datetime"), "u")) \
         .withColumn("week_day", date_format(col("pickup_datetime"), "E")) \
 
-    df_with_km_per_time_slice = df_with_distance_day_of_week.rdd \
+    df_with_km_per_day_of_week = df_with_distance_day_of_week.rdd \
         .map(lambda x : (x.week_day,x.distance)) \
         .reduceByKey(lambda x,y: x + y)
 
 
-    result = df_with_km_per_time_slice.collect()
+    result = df_with_km_per_day_of_week.collect()
+
+    df_with_km_per_day_of_week.toDF().write.save("outputs/df_with_km_per_day_of_week")
 
     return result 

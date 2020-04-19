@@ -28,5 +28,6 @@ def analyze(spark,df):
         .reduceByKey(lambda x,y: x + y)
 
     result = df_with_trajet_per_time_slice.collect()
+    df_with_trajet_per_time_slice.toDF().write.save("outputs/df_with_trajet_per_time_slice")
 
     return result 

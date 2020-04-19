@@ -7,9 +7,10 @@ def analyze(spark,df):
     res3 = jobs.trip_per_time_slice.analyze(spark,df)
     res4 = jobs.km_per_day_of_week.analyze(spark,df)
 
-    res1.write.format("csv").option("header","true").save("data/trip_speed_take5.csv")
-    res2.write.format("csv").option("header","true").save("data/trip_per_day_of_week.csv")
-    res3.write.format("csv").option("header","true").save("data/trip_per_time_slice.csv")
-    res4.write.format("csv").option("header","true").save("data/km_per_day_of_week.csv")
+    print('''Aperçu du nouveau dataframe avec la vitesse par trajet : {}\n
+    Nombre de voyage par jour : {}\n
+    Nombre de voyage par tranche horaire : {}\n
+    Nombre de km par jour de la semaine : {}
+    '''.format(res1,res2,res3,res4))
 
-    return "csv files are saved"
+    return "files are saved"

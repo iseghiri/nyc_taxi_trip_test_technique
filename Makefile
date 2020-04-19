@@ -5,6 +5,9 @@ clean-build:
 
 build:
 	mkdir ./dist
+	mkdir ./dist/outputs
 	cp ./src/main.py ./dist
 	cp -r ./src/data ./dist
 	cd ./src && zip -x main.py -r ../dist/jobs.zip .
+	
+	

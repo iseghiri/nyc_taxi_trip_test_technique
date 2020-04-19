@@ -1,4 +1,5 @@
 from pyspark.sql.functions import *
+
 def analyze(spark,df):
     df_with_day_of_week = df \
         .withColumn("pickup_datetime",to_timestamp(col("pickup_datetime"))) \
@@ -10,5 +11,7 @@ def analyze(spark,df):
         .reduceByKey(lambda x,y: x + y)
 
     result = df_with_tip_per_day.collect()
+
+    df_with_tip_per_day.toDF().write.save("outputs/df_with_tip_per_day")
 
     return result 

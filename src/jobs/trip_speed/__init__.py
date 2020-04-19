@@ -16,5 +16,6 @@ def analyze(spark,df):
     .withColumn("distance", asin(sqrt(col("a"))) * 2 * r) \
     .withColumn("speed",col("distance") / col("trip_duration"))
 
+    df_with_speed.write.save("outputs/df_with_speed")
     result = df_with_speed.take(5)
     return result
