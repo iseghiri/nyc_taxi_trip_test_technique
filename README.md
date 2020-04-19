@@ -91,7 +91,7 @@ cd dist && spark-submit --py-files jobs.zip main.py --<nom du job>
 
 Les fichiers créés par le job sont sauvegardés dans le dossier /dist/outputs
 
-Pour supprimer le fichier dist il suffit de faire la commande suivante 
+Pour supprimer le dossier dist il suffit de faire la commande suivante 
 
 ```shell
 make clean
