@@ -40,7 +40,7 @@ if __name__ == '__main__':
         .read \
         .format("csv") \
         .option("header", "true") \
-        .load("data/train.csv")
+        .load("data/train_first_1000.csv")
     try:
         tests.check_input_schema(df)
     except AssertionError as msg:
