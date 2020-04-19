@@ -36,6 +36,8 @@ devrait suffire.
 ### Calcul de la vitesse 
 
 J'ai utilisé ici la formule de Haversine pour cacluler la distance en km entre un point A et un point B.
+<img src="https://render.githubusercontent.com/render/math?math=a = sin^2(\frac{lat_B-lat_A}{2})+ cos(lat_A)*cos(lat_B)*sin^2(\frac{long_B-long_A}{2})">
+
 $$a = sin^2(\frac{lat_B-lat_A}{2})+ cos(lat_A)*cos(lat_B)*sin^2(\frac{long_B-long_A}{2})$$
 $$d=2*r*arcsin(\sqrt{a})$$
 
