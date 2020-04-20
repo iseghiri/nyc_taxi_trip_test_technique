@@ -42,7 +42,7 @@ J'ai utilisé ici la formule de Haversine pour cacluler la distance en km entre 
 <img src="https://render.githubusercontent.com/render/math?math=d=2*r*arcsin(\sqrt{a})">
 
 
-avec r le rayon de la sphère sur laquelle sont placés les points. On considérera ici la terre comme sphérique, ce qui donne de bon résultat en pratique.
+avec r le rayon de la sphère sur laquelle sont placés les points. On considérera ici la terre comme sphérique, ce qui donne de bons résultats en pratique.
 D'après la formule de wikipédia : https://en.wikipedia.org/wiki/Haversine_formula
 
 
@@ -79,7 +79,7 @@ Une fois le projet téléchargé on peut lancer 5 jobs :
 - trip_per_day_of_week
 - trip_per_time_slice
 - km_per_day_of_week
-- compute_all_jobs
+- compute_all_jobs (permet de lancer les 4 jobs précédents)
 
 ### Comment lancer un job 
 
@@ -91,13 +91,13 @@ cd dist && spark-submit --py-files jobs.zip main.py --<nom du job>
 
 Les fichiers créés par le job sont sauvegardés dans le dossier /dist/outputs
 
-Pour supprimer le dossier dist il suffit de faire la commande suivante 
+Pour supprimer le dossier dist il suffit de revenir à la racine du dossier et lancer la commande suivante 
 
 ```shell
 make clean
 ```
 
-Cette structure permet le packaging de nos jobs et de l'importer simplement.
+Cette structure permet le packaging de nos jobs et de pouvoir les importer simplement.
 Chaque job peut ainsi être modifié indépendamment des autres.
 
 De plus grâce au Makefile il est très simple de supprimer et reconstruire l'environement de production. 
