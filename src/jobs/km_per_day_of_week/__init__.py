@@ -3,6 +3,7 @@ from shared import tests
 
 def analyze(spark,df):
 
+    #Earth radius
     r = 6371
 
     df_with_distance_day_of_week = df \
@@ -10,15 +11,17 @@ def analyze(spark,df):
         .withColumn("distance", asin(sqrt(col("a"))) * 2 * r) \
         .withColumn("pickup_datetime",to_timestamp(col("pickup_datetime"))) \
         .withColumn("week_day_number", date_format(col("pickup_datetime"), "u")) \
-        .withColumn("week_day", date_format(col("pickup_datetime"), "E")) \
+        .withColumn("week_day", date_format(col("pickup_datetime"), "E"))
 
+    #we map each day week with the corresponding distance, then we reduce by the day key with the sum operator 
     df_with_km_per_day_of_week = df_with_distance_day_of_week.rdd \
         .map(lambda x : (x.week_day,x.distance)) \
         .reduceByKey(lambda x,y: x + y)
 
-
+    #we can use collect since we know there will be at most 8 row (week days + unknown if the format is not correct)
     result = df_with_km_per_day_of_week.collect()
 
+    #check that the pickup_datetime format has not change 
     try:
         tests.check_week_days(result)
     except AssertionError as msg:
