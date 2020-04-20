@@ -8,6 +8,15 @@ from pyspark.sql.functions import *
 #- 20:00 - 23:59 -> tranche horaire 6
 
 def analyze(spark,df):
+    """ this function creates and saves the dataframe with the number of trips per time_slice
+
+        :param spark: SparkSession created in main
+        :param df: DataFrame created in le main from the input 
+        :type arg1: pyspark.sql.session.SparkSession
+        :type arg1: pyspark.sql.dataframe.DataFrame
+        :return: returns the list of the new_dataframe.collect() and save the new dataframe in outputs
+        :rtype: list
+    """
 
     df_with_time_slice = df \
         .withColumn("pickup_datetime",to_timestamp(col("pickup_datetime"))) \

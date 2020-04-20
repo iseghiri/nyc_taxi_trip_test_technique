@@ -2,7 +2,15 @@ from pyspark.sql.functions import *
 from shared import tests
 
 def analyze(spark,df):
+    """ this function creates and saves the dataframe with the km per week day
 
+        :param spark: SparkSession created in main
+        :param df: DataFrame created in main from the input 
+        :type arg1: pyspark.sql.session.SparkSession
+        :type arg1: pyspark.sql.dataframe.DataFrame
+        :return: returns the list of the new_dataframe.collect() and save the new dataframe in outputs
+        :rtype: list
+    """
     #Earth radius
     r = 6371
 

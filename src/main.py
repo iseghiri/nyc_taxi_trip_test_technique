@@ -33,7 +33,7 @@ if __name__ == '__main__':
         print 'job_args_tuples: %s' % job_args_tuples
         job_args = {a[0]: a[1] for a in job_args_tuples}
 
-    #print '\nRunning job %s...\nenvironment is %s\n' % (args.job_name, environment)
+    print '\nRunning job %s...\n' % (args.job_name)
     
     spark = SparkSession.builder.appName(args.job_name).getOrCreate()
     try:

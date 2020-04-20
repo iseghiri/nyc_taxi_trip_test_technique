@@ -1,6 +1,15 @@
 from pyspark.sql.functions import *
 from shared import tests
 def analyze(spark,df):
+    """ this function creates and saves the dataframe with the number of trips per week day
+
+        :param spark: SparkSession created in main
+        :param df: DataFrame created in main from the input 
+        :type arg1: pyspark.sql.session.SparkSession
+        :type arg1: pyspark.sql.dataframe.DataFrame
+        :return: returns the list of the new_dataframe.collect() and save the new dataframe in outputs
+        :rtype: list
+    """
     df_with_day_of_week = df \
         .withColumn("pickup_datetime",to_timestamp(col("pickup_datetime"))) \
         .withColumn("week_day_number", date_format(col("pickup_datetime"), "u")) \
