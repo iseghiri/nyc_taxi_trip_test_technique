@@ -50,12 +50,12 @@ On sait ensuite que :
 
 <img src="https://render.githubusercontent.com/render/math?math=vitesse = \frac{distance}{temps}">
 
-On aura obtiendra donc ici la vitesse moyenne du trajet en km/seconde, ce qui est une unité peu parlante mais qui permettra de comparer les trajets entre eux. On pourra par exemple voir qui sont les taxis ayant une vitesse moyenne plus rapide que les autres. Si nécessaire on peut ensuite adapter l'unité. Il faudra pour ça un avis métier et une connaissance plus précise de l'utilité de cette métrique.
+On obtiendra donc ici la vitesse moyenne du trajet en km/seconde, ce qui est une unité peu parlante mais qui permettra de comparer les trajets entre eux. On pourra par exemple voir qui sont les taxis ayant une vitesse moyenne plus rapide que les autres. Si nécessaire on peut ensuite adapter l'unité. Il faudra pour ça un avis métier et une connaissance plus précise de l'utilité de cette métrique.
 
 ### MapReduce vs groupByKey
 
 Pour calculer le nombre de trajet en fonction du jour de la semaine, le nombre de trajet par tranche horraire et le nombre de km par jour de la semaine, j'ai utilisé le MapReduce.
-Pourquoi utiliser le MapReduce avec le `reduceByKey` et non pas le `groupByKey`.
+Pourquoi utiliser le MapReduce avec le `reduceByKey` et non pas le `groupByKey` ?
 Lorsque le montant de données est élévé, `groupByKey` est moins performant que `reduceByKey`. Voyons pourquoi.
 
 
